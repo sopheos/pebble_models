@@ -35,6 +35,8 @@ abstract class AdapterAbstract implements AdapterInterface
      */
     public static function unique(array $rows, string $property): array
     {
-        return array_values(array_unique(array_column($rows, $property)));
+        return array_values(array_filter(array_unique(array_column($rows, $property)), function ($i) {
+            return $i !== null;
+        }));
     }
 }
