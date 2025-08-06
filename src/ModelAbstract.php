@@ -56,7 +56,7 @@ abstract class ModelAbstract implements ModelInterface
      */
     public function export(): array
     {
-        return json_decode(json_encode($this), true);
+        return json_decode(json_encode($this), true) ?? [];
     }
 
     /**
